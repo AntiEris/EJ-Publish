@@ -7,7 +7,7 @@ import TemplatesPage from './pages/TemplatesPage';
 
 export default function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
             <TemplateLibraryProvider>
                 <EditorProvider>
                     <div className="flex flex-col h-screen overflow-hidden antialiased bg-paper">
