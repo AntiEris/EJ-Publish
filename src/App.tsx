@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import { EditorProvider } from './lib/editorContext';
 import { TemplateLibraryProvider } from './lib/templates/context';
@@ -7,7 +7,7 @@ import TemplatesPage from './pages/TemplatesPage';
 
 export default function App() {
     return (
-        <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+        <HashRouter>
             <TemplateLibraryProvider>
                 <EditorProvider>
                     <div className="flex flex-col h-screen overflow-hidden antialiased bg-paper">
@@ -20,6 +20,6 @@ export default function App() {
                     </div>
                 </EditorProvider>
             </TemplateLibraryProvider>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
