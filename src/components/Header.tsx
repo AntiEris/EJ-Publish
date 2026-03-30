@@ -11,7 +11,7 @@ export default function Header() {
       {/* Left: Logo */}
       <div className="flex items-center gap-3">
         <img
-          src="/favicon.svg"
+          src={`${import.meta.env.BASE_URL}favicon.svg`}
           alt="SNS Publish logo"
           className="h-[26px] w-[26px] shrink-0 rounded-[5px]"
         />
