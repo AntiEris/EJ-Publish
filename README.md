@@ -89,10 +89,18 @@ src/
 ├── pages/
 │   ├── EditorPage.tsx          # 文章编辑器
 │   └── TemplatesPage.tsx       # 模板工作台
+├── components/
+│   ├── EditorPanel.tsx         # Markdown 输入区 + 智能粘贴
+│   ├── PreviewPanel.tsx        # 实时预览面板
+│   ├── Header.tsx              # 顶部导航栏
+│   ├── ThemeSelector.tsx       # 模板切换选择器
+│   └── Toolbar.tsx             # 导出 / 复制 / 预览控制
 ├── lib/
 │   ├── htmlToMarkdown.ts       # 智能粘贴（富文本 → Markdown）
 │   ├── markdown.ts             # 渲染与模板应用
-│   ├── wechatCompat.ts         # 微信兼容处理
+│   ├── wechatCompat.ts         # 微信兼容 + 图片代理上传
+│   ├── imageStore.ts           # 粘贴图片管理
+│   ├── editorContext.tsx        # 编辑器状态管理
 │   └── templates/              # 模板系统运行时
 ├── template-library/
 │   ├── templates/              # 运行时模板（JSON）
