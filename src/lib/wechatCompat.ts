@@ -1,6 +1,8 @@
 import { buildTemplateStyleMap, getBundledTemplates, styleDeclarationToString } from './templates';
 import type { TemplateDefinition } from './templates';
 
+const IMAGE_PROXY_URL = 'https://tmpimg.ej-studio.app';
+
 // Helper to convert images to Base64
 async function getBase64Image(imgUrl: string): Promise<string> {
     try {
@@ -18,6 +20,26 @@ async function getBase64Image(imgUrl: string): Promise<string> {
         });
     } catch (e) {
         return imgUrl;
+    }
+}
+
+// Upload a base64 data URL to the image proxy, returns an https URL
+async function uploadToImageProxy(dataUrl: string): Promise<string> {
+    try {
+        const contentTypeMatch = dataUrl.match(/^data:([^;]+);/);
+        const contentType = contentTypeMatch ? contentTypeMatch[1] : 'image/png';
+
+        const resp = await fetch(`${IMAGE_PROXY_URL}/upload`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ data: dataUrl, contentType }),
+        });
+        if (!resp.ok) return dataUrl;
+
+        const result = await resp.json() as { url?: string };
+        return result.url || dataUrl;
+    } catch {
+        return dataUrl; // Fallback to base64 if proxy unavailable
     }
 }
 
@@ -412,18 +434,26 @@ export async function makeWeChatCompatible(html: string, templateOrId: TemplateD
 
     // 11. Process images for WeChat pasting.
     // Public https:// URLs are kept as-is — WeChat will fetch and re-host them.
-    // Only convert local/relative/localhost URLs to base64.
+    // Local/relative/localhost URLs → convert to base64 → upload to image proxy → get https URL.
+    // If image proxy is unavailable, falls back to base64 (which won't survive WeChat save).
     const imgs = Array.from(section.querySelectorAll('img'));
     await Promise.all(imgs.map(async img => {
         const src = img.getAttribute('src');
-        if (!src || src.startsWith('data:')) return;
+        if (!src) return;
+
         const isPublicUrl = /^https?:\/\//.test(src)
             && !src.includes('localhost')
             && !src.includes('127.0.0.1');
-        if (!isPublicUrl) {
-            const base64 = await getBase64Image(src);
-            img.setAttribute('src', base64);
-        }
+
+        if (isPublicUrl) return; // WeChat can fetch these directly
+
+        // Get base64 version (already base64 or convert from local)
+        const base64 = src.startsWith('data:') ? src : await getBase64Image(src);
+        if (!base64.startsWith('data:')) return; // conversion failed, keep original
+
+        // Upload to image proxy for a public https URL
+        const proxyUrl = await uploadToImageProxy(base64);
+        img.setAttribute('src', proxyUrl);
     }));
 
     doc.body.innerHTML = '';
