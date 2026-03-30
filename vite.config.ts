@@ -106,5 +106,5 @@ function templateApiPlugin() {
 
 export default defineConfig({
   plugins: [react(), templateApiPlugin()],
-  base: '/',
+  base: './',
 })
