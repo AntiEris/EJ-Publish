@@ -37,7 +37,7 @@ export default function Header() {
         <motion.a
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          href="https://github.com/AntiEris/SNS-publish"
+          href="https://github.com/AntiEris/EJ-Publish"
           target="_blank"
           rel="noopener noreferrer"
           className="icon-btn-sm"

@@ -4,6 +4,8 @@
 
 当前重点围绕微信公众号发布链路设计，同时支持 HTML / PDF 导出。
 
+**在线体验：[publish.ej-studio.app](https://publish.ej-studio.app)**
+
 ![编辑器界面](src/content/screenshot_editor.png)
 
 ## 为什么做这个
