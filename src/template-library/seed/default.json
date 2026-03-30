@@ -1,0 +1,273 @@
+{
+  "id": "default",
+  "name": "Eris 桓",
+  "description": "作者自用模板——暖纸底色，石板蓝点缀，衬线正文配无衬线标题，直角引用框，◇ 菱形分割",
+  "meta": {
+    "version": 1,
+    "group": "默认",
+    "icon": null,
+    "source": "seed",
+    "createdAt": "2026-03-24T11:39:36.644Z",
+    "updatedAt": "2026-03-29T23:47:01.442Z"
+  },
+  "globalStyles": {
+    "page": {
+      "background-color": "#f7f5f0 !important",
+      "max-width": "100%",
+      "padding": "32px 26px 56px 26px",
+      "margin": "0 auto",
+      "word-wrap": "break-word"
+    },
+    "body": {
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "font-size": "17px",
+      "line-height": "1.9 !important",
+      "color": "#1c1c1c !important"
+    },
+    "paragraph": {
+      "margin": "22px 0 !important",
+      "line-height": "1.9 !important",
+      "color": "#1c1c1c !important"
+    },
+    "headings": {
+      "h1": {
+        "font-size": "28px",
+        "font-weight": "700",
+        "line-height": "1.60 !important",
+        "letter-spacing": "0.02em",
+        "color": "#111 !important",
+        "margin": "48px 0 24px 0",
+        "border-bottom": "2px solid rgba(92, 122, 138, 0.7)"
+      },
+      "h2": {
+        "font-size": "24px",
+        "font-weight": "700",
+        "line-height": "1.4 !important",
+        "letter-spacing": "0.02em",
+        "color": "#1c1c1c !important",
+        "margin": "40px 0 16px",
+        "border-left": "4px solid #5c7a8a"
+      },
+      "h3": {
+        "font-size": "21px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "letter-spacing": "0.02em",
+        "color": "#3a3a3a !important",
+        "margin": "32px 0 14px 0",
+        "border-left": "3px solid rgba(92, 122, 138, 1)"
+      },
+      "h4": {
+        "font-size": "17px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "letter-spacing": "0.01em",
+        "color": "#5c7a8a !important",
+        "margin": "28px 80px 12px 80px",
+        "border-bottom": "2px dashed rgba(92, 122, 138, 0.5)",
+        "border-left": "2px dashed rgba(92, 122, 138, 0.5)"
+      }
+    }
+  },
+  "selectorStyles": {
+    "container": {
+      "max-width": "100%",
+      "margin": "0 auto",
+      "padding": "32px 26px 56px 26px",
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "font-size": "17px",
+      "line-height": "1.9 !important",
+      "color": "#1c1c1c !important",
+      "background-color": "#f7f5f0 !important",
+      "word-wrap": "break-word",
+      "border-radius": "0px"
+    },
+    "h1": {
+      "font-size": "28px",
+      "color": "#111 !important",
+      "line-height": "1.60 !important",
+      "margin": "48px 0 24px 0",
+      "text-align": "center",
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "padding": "0 0 16px 0",
+      "border-bottom": "2px solid rgba(92, 122, 138, 0.7)",
+      "font-weight": "700",
+      "letter-spacing": "0.02em"
+    },
+    "h2": {
+      "font-size": "24px",
+      "font-weight": "700",
+      "color": "#1c1c1c !important",
+      "line-height": "1.4 !important",
+      "margin": "40px 0 16px",
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "padding": "0 0 0 14px",
+      "border-left": "4px solid #5c7a8a",
+      "letter-spacing": "0.02em"
+    },
+    "h3": {
+      "font-size": "21px",
+      "font-weight": "600",
+      "color": "#3a3a3a !important",
+      "line-height": "1.4 !important",
+      "margin": "32px 0 14px 0",
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "padding": "0 0 0 14px",
+      "border-left": "3px solid rgba(92, 122, 138, 1)",
+      "border-radius": "0px",
+      "letter-spacing": "0.02em"
+    },
+    "h4": {
+      "font-size": "17px",
+      "font-weight": "600",
+      "color": "#5c7a8a !important",
+      "line-height": "1.4 !important",
+      "margin": "28px 80px 12px 80px",
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "border-top": "2px dashed rgba(92, 122, 138, 0.5)",
+      "border-right": "2px dashed rgba(92, 122, 138, 0.5)",
+      "border-bottom": "2px dashed rgba(92, 122, 138, 0.5)",
+      "border-left": "2px dashed rgba(92, 122, 138, 0.5)",
+      "text-align": "center",
+      "padding": "2px 2px 2px 2px",
+      "letter-spacing": "0.01em"
+    },
+    "p": {
+      "margin": "22px 0 !important",
+      "line-height": "1.9 !important",
+      "color": "#1c1c1c !important"
+    },
+    "strong": {
+      "font-weight": "700",
+      "color": "#5c7a8a !important",
+      "background-color": "rgba(92, 122, 138, 0.06)",
+      "padding": "0 4px",
+      "border-radius": "3px"
+    },
+    "em": {
+      "font-style": "italic",
+      "color": "#4a4a4a !important",
+      "background-color": "rgba(234,230,220,0.6)",
+      "padding": "0 3px",
+      "border-radius": "2px"
+    },
+    "u": {
+      "text-decoration-style": "dashed",
+      "text-decoration-color": "rgba(92,122,138,0.45)",
+      "text-underline-offset": "4px",
+      "text-decoration-line": "underline"
+    },
+    "a": {
+      "color": "#5c7a8a !important",
+      "padding-bottom": "1px",
+      "text-decoration-line": "underline",
+      "text-decoration-style": "solid",
+      "text-underline-offset": "4px"
+    },
+    "ul": {
+      "margin": "20px 0",
+      "padding-left": "28px"
+    },
+    "ol": {
+      "margin": "20px 0",
+      "padding-left": "28px"
+    },
+    "li": {
+      "margin": "6px 0",
+      "line-height": "1.9 !important",
+      "color": "#1c1c1c !important"
+    },
+    "blockquote": {
+      "margin": "24px 0 24px 0",
+      "padding": "18px 24px 18px 24px",
+      "background-color": "rgba(239, 234, 223, 0.5) !important",
+      "border-top": "none",
+      "border-right": "none",
+      "border-bottom": "none",
+      "border-left": "none",
+      "color": "#4a4a4a !important",
+      "border-radius": "0px",
+      "font-style": "italic",
+      "--bq-corner-color": "rgba(92, 122, 138, 0.75)",
+      "text-align": "justify",
+      "--bq-decoration": "corner-frame"
+    },
+    "code": {
+      "font-family": "\"SF Mono\", Consolas, \"Liberation Mono\", Menlo, monospace",
+      "padding": "2px 6px",
+      "background-color": "rgba(234,230,220,0.6) !important",
+      "color": "#4a6670 !important",
+      "border-radius": "3px",
+      "font-size": "15px !important",
+      "line-height": "1.5 !important"
+    },
+    "pre": {
+      "margin": "28px 4px 28px 4px",
+      "padding": "20px 20px 20px 20px",
+      "background-color": "rgba(92, 122, 138, 0.1) !important",
+      "border-top": "1px solid #ddd8ce",
+      "border-right": "1px solid #ddd8ce",
+      "border-bottom": "1px solid #ddd8ce",
+      "border-radius": "10px",
+      "overflow-x": "auto",
+      "font-size": "13px !important",
+      "line-height": "1.6 !important",
+      "font-family": "\"SF Mono\", Consolas, \"Liberation Mono\", Menlo, monospace",
+      "color": "rgba(66, 66, 66, 0.76)",
+      "border-left": "1px solid #ddd8ce"
+    },
+    "hr": {
+      "margin": "44px auto",
+      "border": "none",
+      "height": "0",
+      "width": "100%",
+      "--hr-symbol": "◇",
+      "--hr-symbol-position": "center",
+      "--hr-symbol-color": "#5c7a8a",
+      "--hr-symbol-size": "10px",
+      "--hr-gap": "24px",
+      "--hr-line-color": "#c8c3b8",
+      "--hr-line-thickness": "1px"
+    },
+    "img": {
+      "max-width": "92%",
+      "height": "auto",
+      "display": "block",
+      "margin": "30px auto",
+      "border-radius": "10px"
+    },
+    "table": {
+      "width": "100%",
+      "margin": "28px 0",
+      "font-size": "15px",
+      "border-collapse": "collapse"
+    },
+    "th": {
+      "background-color": "rgba(92,122,138,0.10) !important",
+      "padding": "10px 14px",
+      "text-align": "left",
+      "font-weight": "600",
+      "color": "#1c1c1c !important",
+      "border": "2px solid rgba(160, 180, 190, 0.25)"
+    },
+    "td": {
+      "padding": "10px 14px",
+      "border": "1px solid rgba(216, 211, 200, 1)",
+      "color": "#1c1c1c !important"
+    },
+    "tr": {
+      "border": "none"
+    }
+  },
+  "advancedStyles": {
+    "blockquote": {
+      "box-shadow": "0 1px 8px rgba(0,0,0,0.05)"
+    },
+    "img": {
+      "box-shadow": "0 4px 16px rgba(0,0,0,0.09)"
+    },
+    "pre": {
+      "box-shadow": "0 1px 6px rgba(0,0,0,0.04)"
+    }
+  }
+}

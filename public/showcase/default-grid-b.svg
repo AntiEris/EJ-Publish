@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" fill="none">
+  <defs>
+    <linearGradient id="b" x1="160" y1="80" x2="1020" y2="710" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DC2626"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="780" rx="40" fill="url(#b)"/>
+  <circle cx="932" cy="172" r="96" fill="white" fill-opacity="0.12"/>
+  <circle cx="232" cy="602" r="120" fill="white" fill-opacity="0.10"/>
+  <rect x="124" y="128" width="952" height="524" rx="28" fill="white" fill-opacity="0.90"/>
+  <rect x="190" y="192" width="310" height="250" rx="24" fill="#FCE7F3"/>
+  <rect x="548" y="208" width="342" height="30" rx="15" fill="#DB2777" fill-opacity="0.18"/>
+  <rect x="548" y="266" width="390" height="64" rx="18" fill="#3B0764"/>
+  <rect x="548" y="362" width="348" height="22" rx="11" fill="#7C3AED" fill-opacity="0.24"/>
+  <rect x="548" y="402" width="282" height="22" rx="11" fill="#7C3AED" fill-opacity="0.14"/>
+  <rect x="548" y="458" width="204" height="48" rx="16" fill="#DB2777"/>
+  <text x="548" y="316" fill="white" font-family="Arial, sans-serif" font-size="42" font-weight="700">Grid Preview B</text>
+  <text x="190" y="540" fill="#831843" font-family="Arial, sans-serif" font-size="30" font-weight="700">Local Templates</text>
+</svg>

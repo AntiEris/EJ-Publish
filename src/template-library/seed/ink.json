@@ -1,0 +1,233 @@
+{
+  "id": "ink",
+  "name": "水墨",
+  "description": "楷体正文，浓淡墨色层级，直角印章引用框， ● 墨滴分割，中式写意排版",
+  "meta": {
+    "version": 1,
+    "group": "更多风格",
+    "icon": null,
+    "source": "seed",
+    "createdAt": "2026-03-29T20:45:40.560Z",
+    "updatedAt": "2026-03-29T20:50:32.117Z"
+  },
+  "globalStyles": {
+    "page": {
+      "background-color": "#faf9f6 !important",
+      "max-width": "100%",
+      "padding": "36px 28px 60px 28px",
+      "margin": "0 auto",
+      "word-wrap": "break-word"
+    },
+    "body": {
+      "font-family": "\"Kaiti SC\", \"STKaiti\", \"KaiTi\", \"楷体\", Georgia, serif",
+      "font-size": "17px",
+      "line-height": "2.0 !important",
+      "color": "#2a2a2a !important"
+    },
+    "paragraph": {
+      "margin": "22px 0 !important",
+      "line-height": "2.0 !important",
+      "color": "#2a2a2a !important"
+    },
+    "headings": {
+      "h1": {
+        "font-size": "26px",
+        "font-weight": "700",
+        "line-height": "1.4 !important",
+        "letter-spacing": "0.06em",
+        "color": "#000000 !important",
+        "margin": "48px 0 20px",
+        "border-bottom": "2px solid #333",
+        "padding-bottom": "14px"
+      },
+      "h2": {
+        "font-size": "21px",
+        "font-weight": "700",
+        "line-height": "1.4 !important",
+        "color": "#111111 !important",
+        "margin": "40px 0 16px",
+        "padding": "0 0 0 14px",
+        "border-left": "4px solid #333"
+      },
+      "h3": {
+        "font-size": "18px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "color": "#333333 !important",
+        "margin": "32px 0 12px"
+      },
+      "h4": {
+        "font-size": "16px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "letter-spacing": "0.06em",
+        "color": "#666666 !important",
+        "margin": "28px 0 10px"
+      }
+    }
+  },
+  "selectorStyles": {
+    "container": {
+      "max-width": "100%",
+      "margin": "0 auto",
+      "padding": "36px 28px 60px 28px",
+      "font-family": "\"Kaiti SC\", \"STKaiti\", \"KaiTi\", \"楷体\", Georgia, serif",
+      "font-size": "17px",
+      "line-height": "2.0 !important",
+      "color": "#2a2a2a !important",
+      "background-color": "#faf9f6 !important",
+      "word-wrap": "break-word"
+    },
+    "h1": {
+      "font-size": "26px",
+      "font-weight": "700",
+      "color": "#000000 !important",
+      "line-height": "1.4 !important",
+      "margin": "48px 0 20px",
+      "letter-spacing": "0.06em",
+      "text-align": "center",
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "padding": "0 0 14px 0",
+      "border-bottom": "2px solid #333"
+    },
+    "h2": {
+      "font-size": "21px",
+      "font-weight": "700",
+      "color": "#111111 !important",
+      "line-height": "1.4 !important",
+      "margin": "40px 0 16px",
+      "font-family": "\"FangSong\", \"STFangsong\", serif",
+      "padding": "0 0 0 14px",
+      "border-left": "4px solid #333"
+    },
+    "h3": {
+      "font-size": "18px",
+      "font-weight": "600",
+      "color": "#333333 !important",
+      "line-height": "1.4 !important",
+      "margin": "32px 0 12px",
+      "font-family": "\"FangSong\", \"STFangsong\", serif"
+    },
+    "h4": {
+      "font-size": "16px",
+      "font-weight": "600",
+      "color": "#666666 !important",
+      "line-height": "1.4 !important",
+      "margin": "28px 0 10px",
+      "letter-spacing": "0.06em",
+      "font-family": "\"FangSong\", \"STFangsong\", serif"
+    },
+    "p": {
+      "margin": "22px 0 !important",
+      "line-height": "2.0 !important",
+      "color": "#2a2a2a !important"
+    },
+    "strong": {
+      "font-weight": "700",
+      "color": "#000000 !important"
+    },
+    "em": {
+      "font-style": "italic",
+      "color": "#666 !important"
+    },
+    "u": {
+      "text-decoration-style": "solid",
+      "text-decoration-color": "#666",
+      "text-underline-offset": "4px"
+    },
+    "a": {
+      "color": "#1a1a1a !important",
+      "text-decoration": "none",
+      "border-bottom": "1px solid #888",
+      "padding-bottom": "1px"
+    },
+    "ul": {
+      "margin": "20px 0",
+      "padding-left": "28px"
+    },
+    "ol": {
+      "margin": "20px 0",
+      "padding-left": "28px"
+    },
+    "li": {
+      "margin": "6px 0",
+      "line-height": "2.0 !important",
+      "color": "#2a2a2a !important"
+    },
+    "blockquote": {
+      "margin": "32px 0",
+      "padding": "18px 22px",
+      "background-color": "#f4f2ec !important",
+      "border-top": "none",
+      "border-right": "none",
+      "border-bottom": "none",
+      "border-left": "none",
+      "color": "#444 !important",
+      "border-radius": "0",
+      "--bq-decoration": "corner-frame",
+      "--bq-corner-color": "#555"
+    },
+    "code": {
+      "font-family": "\"SF Mono\", Consolas, monospace",
+      "padding": "2px 5px",
+      "background-color": "#efeде7 !important",
+      "color": "#333 !important",
+      "border-radius": "0",
+      "font-size": "14px !important",
+      "line-height": "1.5 !important"
+    },
+    "pre": {
+      "margin": "28px 0",
+      "padding": "20px",
+      "background-color": "#f4f2ec !important",
+      "border-left": "3px solid #555",
+      "border-radius": "0",
+      "overflow-x": "auto",
+      "font-size": "13px !important",
+      "line-height": "1.6 !important"
+    },
+    "hr": {
+      "margin": "48px auto",
+      "border": "none",
+      "height": "0",
+      "width": "100%",
+      "--hr-symbol": "●",
+      "--hr-symbol-position": "center",
+      "--hr-symbol-color": "#555",
+      "--hr-symbol-size": "8px",
+      "--hr-gap": "24px",
+      "--hr-line-color": "#ccc",
+      "--hr-line-thickness": "1px"
+    },
+    "img": {
+      "max-width": "100%",
+      "height": "auto",
+      "display": "block",
+      "margin": "32px auto",
+      "border-radius": "0"
+    },
+    "table": {
+      "width": "100%",
+      "margin": "28px 0",
+      "border-collapse": "collapse",
+      "font-size": "15px"
+    },
+    "th": {
+      "background-color": "#f4f2ec !important",
+      "padding": "10px 14px",
+      "text-align": "left",
+      "font-weight": "700",
+      "color": "#111 !important",
+      "border": "1px solid #ccc"
+    },
+    "td": {
+      "padding": "10px 14px",
+      "border": "1px solid #ccc",
+      "color": "#2a2a2a !important"
+    },
+    "tr": {
+      "border": "none"
+    }
+  },
+  "advancedStyles": {}
+}

@@ -1,0 +1,17 @@
+.DS_Store
+*.bak*
+node_modules/
+dist/
+playwright-report/
+test-results/
+*.tsbuildinfo
+*.log
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+docs/
+.tmp-theme-load/
+vite.config.js
+vite.config.d.ts

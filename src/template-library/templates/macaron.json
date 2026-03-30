@@ -1,0 +1,239 @@
+{
+  "id": "macaron",
+  "name": "马卡龙",
+  "description": "多彩马卡龙色系，✦ 三星分割线，直角引用框，甜而不腻的少女感排版",
+  "meta": {
+    "version": 1,
+    "group": "更多风格",
+    "icon": null,
+    "source": "seed",
+    "createdAt": null,
+    "updatedAt": null
+  },
+  "globalStyles": {
+    "page": {
+      "background-color": "#fdf9f3 !important",
+      "max-width": "100%",
+      "padding": "32px 24px 56px 24px",
+      "margin": "0 auto",
+      "word-wrap": "break-word"
+    },
+    "body": {
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "font-size": "16px",
+      "line-height": "1.8 !important",
+      "color": "#4a4558 !important"
+    },
+    "paragraph": {
+      "margin": "20px 0 !important",
+      "line-height": "1.8 !important",
+      "color": "#4a4558 !important"
+    },
+    "headings": {
+      "h1": {
+        "font-size": "28px",
+        "font-weight": "800",
+        "line-height": "1.3 !important",
+        "letter-spacing": "-0.01em",
+        "color": "#e07a94 !important",
+        "margin": "40px 0 16px",
+        "padding-bottom": "12px",
+        "border-bottom": "3px solid #f5c6d0"
+      },
+      "h2": {
+        "font-size": "22px",
+        "font-weight": "700",
+        "line-height": "1.35 !important",
+        "color": "#6aadcb !important",
+        "margin": "36px 0 14px",
+        "padding": "4px 0 4px 14px",
+        "border-left": "4px solid #6aadcb"
+      },
+      "h3": {
+        "font-size": "18px",
+        "font-weight": "700",
+        "line-height": "1.4 !important",
+        "color": "#78ad76 !important",
+        "margin": "28px 0 12px"
+      },
+      "h4": {
+        "font-size": "16px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "color": "#d4a054 !important",
+        "margin": "24px 0 10px"
+      }
+    }
+  },
+  "selectorStyles": {
+    "container": {
+      "max-width": "100%",
+      "margin": "0 auto",
+      "padding": "32px 24px 56px 24px",
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "font-size": "16px",
+      "line-height": "1.8 !important",
+      "color": "#4a4558 !important",
+      "background-color": "#fdf9f3 !important",
+      "word-wrap": "break-word"
+    },
+    "h1": {
+      "font-size": "28px",
+      "font-weight": "800",
+      "color": "#e07a94 !important",
+      "line-height": "1.3 !important",
+      "margin": "40px 0 16px",
+      "letter-spacing": "-0.01em",
+      "padding": "0 0 12px 0",
+      "border-bottom": "3px solid #f5c6d0"
+    },
+    "h2": {
+      "font-size": "22px",
+      "font-weight": "700",
+      "color": "#6aadcb !important",
+      "line-height": "1.35 !important",
+      "margin": "36px 0 14px",
+      "padding": "4px 0 4px 14px",
+      "border-left": "4px solid #6aadcb"
+    },
+    "h3": {
+      "font-size": "18px",
+      "font-weight": "700",
+      "color": "#78ad76 !important",
+      "line-height": "1.4 !important",
+      "margin": "28px 0 12px"
+    },
+    "h4": {
+      "font-size": "16px",
+      "font-weight": "600",
+      "color": "#d4a054 !important",
+      "line-height": "1.4 !important",
+      "margin": "24px 0 10px"
+    },
+    "p": {
+      "margin": "20px 0 !important",
+      "line-height": "1.8 !important",
+      "color": "#4a4558 !important"
+    },
+    "strong": {
+      "font-weight": "700",
+      "color": "#e07a94 !important"
+    },
+    "em": {
+      "font-style": "italic",
+      "color": "#9b8ec4 !important"
+    },
+    "u": {
+      "text-decoration-style": "solid",
+      "text-decoration-color": "#f5c6d0",
+      "text-underline-offset": "3px"
+    },
+    "a": {
+      "color": "#6aadcb !important",
+      "text-decoration": "none",
+      "border-bottom": "1px dashed #6aadcb",
+      "padding-bottom": "1px"
+    },
+    "ul": {
+      "margin": "16px 0",
+      "padding-left": "28px"
+    },
+    "ol": {
+      "margin": "16px 0",
+      "padding-left": "28px"
+    },
+    "li": {
+      "margin": "6px 0",
+      "line-height": "1.8 !important",
+      "color": "#4a4558 !important"
+    },
+    "blockquote": {
+      "margin": "28px 0",
+      "padding": "18px 20px",
+      "background-color": "#faf5ff !important",
+      "border-top": "none",
+      "border-right": "none",
+      "border-bottom": "none",
+      "border-left": "none",
+      "color": "#6b5d7b !important",
+      "border-radius": "2px",
+      "--bq-decoration": "corner-frame",
+      "--bq-corner-color": "#b8a9e0"
+    },
+    "code": {
+      "font-family": "\"SF Mono\", Consolas, monospace",
+      "padding": "2px 6px",
+      "background-color": "#fef0f3 !important",
+      "color": "#e07a94 !important",
+      "border-radius": "4px",
+      "font-size": "13px !important",
+      "line-height": "1.5 !important"
+    },
+    "pre": {
+      "margin": "24px 0",
+      "padding": "20px",
+      "background-color": "#faf8f5 !important",
+      "border-top": "1px solid #efe8df",
+      "border-right": "1px solid #efe8df",
+      "border-bottom": "1px solid #efe8df",
+      "border-left": "1px solid #efe8df",
+      "border-radius": "10px",
+      "overflow-x": "auto",
+      "font-size": "13px !important",
+      "line-height": "1.6 !important"
+    },
+    "hr": {
+      "margin": "40px auto",
+      "border": "none",
+      "height": "0",
+      "width": "100%",
+      "--hr-symbol": "✦ ✦ ✦",
+      "--hr-symbol-position": "center",
+      "--hr-symbol-color": "#d4a054",
+      "--hr-symbol-size": "8px",
+      "--hr-gap": "0",
+      "--hr-line-color": "",
+      "--hr-line-thickness": ""
+    },
+    "img": {
+      "max-width": "100%",
+      "height": "auto",
+      "display": "block",
+      "margin": "28px auto",
+      "border-radius": "14px"
+    },
+    "table": {
+      "width": "100%",
+      "margin": "24px 0",
+      "border-collapse": "collapse",
+      "font-size": "14px"
+    },
+    "th": {
+      "background-color": "#faf5ff !important",
+      "padding": "10px 14px",
+      "text-align": "left",
+      "font-weight": "700",
+      "color": "#6b5d7b !important",
+      "border": "1px solid #efe4f5"
+    },
+    "td": {
+      "padding": "10px 14px",
+      "border": "1px solid #efe4f5",
+      "color": "#4a4558 !important"
+    },
+    "tr": {
+      "border": "none"
+    }
+  },
+  "advancedStyles": {
+    "blockquote": {
+      "box-shadow": "0 2px 12px rgba(184, 169, 224, 0.10)"
+    },
+    "img": {
+      "box-shadow": "0 4px 16px rgba(224, 122, 148, 0.12)"
+    },
+    "pre": {
+      "box-shadow": "0 2px 8px rgba(74, 69, 88, 0.06)"
+    }
+  }
+}

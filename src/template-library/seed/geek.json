@@ -1,0 +1,217 @@
+{
+  "id": "geek",
+  "name": "极客",
+  "description": "现代开发者文档风，近黑主色调，深青色精准点缀，高对比度极简排版",
+  "meta": {
+    "version": 1,
+    "group": "潮流",
+    "icon": null,
+    "source": "seed",
+    "createdAt": "2026-03-29T20:32:32.393Z",
+    "updatedAt": "2026-03-29T23:39:07.471Z"
+  },
+  "globalStyles": {
+    "page": {
+      "background-color": "#ffffff !important",
+      "max-width": "100%",
+      "padding": "32px 24px 56px 24px",
+      "margin": "0 auto",
+      "word-wrap": "break-word"
+    },
+    "body": {
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif",
+      "font-size": "16px",
+      "line-height": "1.7 !important",
+      "color": "#0a0a0a !important"
+    },
+    "paragraph": {
+      "margin": "18px 0 !important",
+      "line-height": "1.7 !important",
+      "color": "#0a0a0a !important"
+    },
+    "headings": {
+      "h1": {
+        "font-size": "28px",
+        "font-weight": "800",
+        "line-height": "1.2 !important",
+        "letter-spacing": "-0.02em",
+        "color": "#0a0a0a !important",
+        "margin": "40px 0 18px",
+        "border-bottom": "3px solid #0a0a0a"
+      },
+      "h2": {
+        "font-size": "22px",
+        "font-weight": "700",
+        "line-height": "1.3 !important",
+        "letter-spacing": "-0.01em",
+        "color": "#0a0a0a !important",
+        "margin": "36px 0 14px"
+      },
+      "h3": {
+        "font-size": "18px",
+        "font-weight": "600",
+        "line-height": "1.35 !important",
+        "color": "#333333 !important",
+        "margin": "28px 0 12px"
+      },
+      "h4": {
+        "font-size": "16px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "color": "#0d9488 !important",
+        "margin": "24px 0 10px"
+      }
+    }
+  },
+  "selectorStyles": {
+    "container": {
+      "max-width": "100%",
+      "margin": "0 auto",
+      "padding": "32px 24px 56px 24px",
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif",
+      "font-size": "16px",
+      "line-height": "1.7 !important",
+      "color": "#0a0a0a !important",
+      "background-color": "#ffffff !important",
+      "word-wrap": "break-word"
+    },
+    "h1": {
+      "font-size": "28px",
+      "font-weight": "800",
+      "color": "#0a0a0a !important",
+      "line-height": "1.2 !important",
+      "letter-spacing": "-0.02em",
+      "margin": "40px 0 18px",
+      "padding": "0 0 14px 0",
+      "border-bottom": "3px solid #0a0a0a"
+    },
+    "h2": {
+      "font-size": "22px",
+      "font-weight": "700",
+      "color": "#0a0a0a !important",
+      "line-height": "1.3 !important",
+      "letter-spacing": "-0.01em",
+      "margin": "36px 0 14px"
+    },
+    "h3": {
+      "font-size": "18px",
+      "font-weight": "600",
+      "color": "#333333 !important",
+      "line-height": "1.35 !important",
+      "margin": "28px 0 12px"
+    },
+    "h4": {
+      "font-size": "16px",
+      "font-weight": "600",
+      "color": "#0d9488 !important",
+      "line-height": "1.4 !important",
+      "margin": "24px 0 10px"
+    },
+    "p": {
+      "margin": "18px 0 !important",
+      "line-height": "1.7 !important",
+      "color": "#0a0a0a !important"
+    },
+    "strong": {
+      "font-weight": "700",
+      "color": "#0a0a0a !important"
+    },
+    "em": {
+      "font-style": "italic",
+      "color": "#666666 !important"
+    },
+    "u": {
+      "text-decoration-style": "solid",
+      "text-decoration-color": "#0a0a0a",
+      "text-underline-offset": "3px"
+    },
+    "a": {
+      "color": "#0d9488 !important",
+      "text-decoration": "none",
+      "border-bottom": "1px solid rgba(13,148,136,0.4)",
+      "padding-bottom": "1px"
+    },
+    "ul": {
+      "margin": "16px 0",
+      "padding-left": "24px"
+    },
+    "ol": {
+      "margin": "16px 0",
+      "padding-left": "24px"
+    },
+    "li": {
+      "margin": "4px 0",
+      "line-height": "1.7 !important",
+      "color": "#0a0a0a !important"
+    },
+    "blockquote": {
+      "margin": "24px 0",
+      "padding": "14px 20px",
+      "background-color": "transparent !important",
+      "border-left": "3px solid #0a0a0a",
+      "color": "#525252 !important",
+      "border-radius": "0"
+    },
+    "code": {
+      "font-family": "\"SF Mono\", Consolas, \"Liberation Mono\", Menlo, monospace",
+      "padding": "2px 6px",
+      "background-color": "#f0fdfa !important",
+      "color": "#075f59 !important",
+      "border-radius": "4px",
+      "font-size": "14px !important",
+      "line-height": "1.5 !important"
+    },
+    "pre": {
+      "margin": "24px 0",
+      "padding": "18px",
+      "background-color": "#fafafa !important",
+      "border-top": "1px solid #e5e5e5",
+      "border-right": "1px solid #e5e5e5",
+      "border-bottom": "1px solid #e5e5e5",
+      "border-left": "1px solid #e5e5e5",
+      "border-radius": "6px",
+      "overflow-x": "auto",
+      "font-size": "13px !important",
+      "line-height": "1.55 !important"
+    },
+    "hr": {
+      "margin": "36px auto",
+      "border": "none",
+      "--hr-symbol": "● ● ●",
+      "--hr-symbol-position": "center",
+      "--hr-symbol-size": "9px",
+      "--hr-symbol-color": "rgba(0, 0, 0, 0.6)",
+      "--hr-gap": "0"
+    },
+    "img": {
+      "max-width": "100%",
+      "height": "auto",
+      "display": "block",
+      "margin": "24px auto",
+      "border-radius": "8px"
+    },
+    "table": {
+      "width": "100%",
+      "margin": "24px 0",
+      "border-collapse": "collapse",
+      "font-size": "14px"
+    },
+    "th": {
+      "background-color": "#fafafa !important",
+      "padding": "8px 14px",
+      "text-align": "left",
+      "font-weight": "700",
+      "color": "#0a0a0a !important",
+      "border": "1px solid rgba(10, 10, 10, 0.15)"
+    },
+    "td": {
+      "padding": "8px 14px",
+      "border": "1px solid rgba(229, 229, 229, 1)",
+      "color": "#0a0a0a !important"
+    },
+    "tr": {
+      "border": "none"
+    }
+  },
+  "advancedStyles": {}
+}

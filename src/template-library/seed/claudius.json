@@ -1,0 +1,239 @@
+{
+  "id": "claudius",
+  "name": "克劳德",
+  "description": "燕麦暖棕底色，赤陶色标题，○ 圆环分割，适合深度长文与文学哲思",
+  "meta": {
+    "version": 1,
+    "group": "经典",
+    "icon": null,
+    "source": "seed",
+    "createdAt": "2026-03-29T20:22:33.690Z",
+    "updatedAt": "2026-03-29T20:26:13.803Z"
+  },
+  "globalStyles": {
+    "page": {
+      "background-color": "#f8f6f0 !important",
+      "max-width": "100%",
+      "padding": "28px 24px 52px 24px",
+      "margin": "0 auto",
+      "word-wrap": "break-word"
+    },
+    "body": {
+      "font-family": "Georgia, \"Times New Roman\", \"Songti SC\", serif",
+      "font-size": "17px",
+      "line-height": "1.85 !important",
+      "color": "#2b2b2b !important"
+    },
+    "paragraph": {
+      "margin": "22px 0 !important",
+      "line-height": "1.85 !important",
+      "color": "#2b2b2b !important"
+    },
+    "headings": {
+      "h1": {
+        "font-size": "26px",
+        "font-weight": "700",
+        "line-height": "1.35 !important",
+        "letter-spacing": "-0.01em",
+        "color": "#b75c3d !important",
+        "margin": "42px 0 18px 0",
+        "border-bottom": "2px solid #d9c4b0",
+        "padding-bottom": "12px"
+      },
+      "h2": {
+        "font-size": "21px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "color": "#b75c3d !important",
+        "margin": "36px 0 14px"
+      },
+      "h3": {
+        "font-size": "18px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "color": "#6b5347 !important",
+        "margin": "30px 0 12px"
+      },
+      "h4": {
+        "font-size": "17px",
+        "font-weight": "600",
+        "line-height": "1.4 !important",
+        "color": "#8a7a6e !important",
+        "margin": "26px 48px 10px 48px"
+      }
+    }
+  },
+  "selectorStyles": {
+    "container": {
+      "max-width": "100%",
+      "margin": "0 auto",
+      "padding": "28px 24px 52px 24px",
+      "font-family": "Georgia, \"Times New Roman\", \"Songti SC\", serif",
+      "font-size": "17px",
+      "line-height": "1.85 !important",
+      "color": "#2b2b2b !important",
+      "background-color": "#f8f6f0 !important",
+      "word-wrap": "break-word"
+    },
+    "h1": {
+      "font-size": "26px",
+      "font-weight": "700",
+      "color": "#b75c3d !important",
+      "line-height": "1.35 !important",
+      "margin": "42px 0 18px 0",
+      "letter-spacing": "-0.01em",
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "border-bottom": "2px solid #d9c4b0",
+      "padding": "0 0 16px 0"
+    },
+    "h2": {
+      "font-size": "21px",
+      "font-weight": "600",
+      "color": "#b75c3d !important",
+      "line-height": "1.4 !important",
+      "margin": "36px 0 14px",
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    },
+    "h3": {
+      "font-size": "18px",
+      "font-weight": "600",
+      "color": "#6b5347 !important",
+      "line-height": "1.4 !important",
+      "margin": "30px 0 12px",
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    },
+    "h4": {
+      "font-size": "17px",
+      "font-weight": "600",
+      "color": "#8a7a6e !important",
+      "line-height": "1.4 !important",
+      "margin": "26px 48px 10px 48px",
+      "font-family": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "text-align": "center",
+      "background-color": "rgba(117, 57, 0, 0.05)",
+      "padding": "4px 24px 4px 24px"
+    },
+    "p": {
+      "margin": "22px 0 !important",
+      "line-height": "1.85 !important",
+      "color": "#2b2b2b !important"
+    },
+    "strong": {
+      "font-weight": "700",
+      "color": "#b75c3d !important"
+    },
+    "em": {
+      "font-style": "italic",
+      "color": "#8a7a6e !important"
+    },
+    "u": {
+      "text-decoration-style": "solid",
+      "text-decoration-color": "#d9c4b0",
+      "text-underline-offset": "4px"
+    },
+    "a": {
+      "color": "#b75c3d !important",
+      "text-decoration": "none",
+      "border-bottom": "1px solid rgba(183,92,61,0.35)",
+      "padding-bottom": "1px"
+    },
+    "ul": {
+      "margin": "18px 0",
+      "padding-left": "28px"
+    },
+    "ol": {
+      "margin": "18px 0",
+      "padding-left": "28px"
+    },
+    "li": {
+      "margin": "6px 0",
+      "line-height": "1.85 !important",
+      "color": "#2b2b2b !important"
+    },
+    "blockquote": {
+      "margin": "28px 0",
+      "padding": "18px 22px",
+      "background-color": "#f2ede4 !important",
+      "border-left": "3px solid #c9a88c",
+      "color": "#5c4f44 !important",
+      "border-radius": "2px",
+      "font-style": "italic",
+      "font-size": "17px"
+    },
+    "code": {
+      "font-family": "\"SF Mono\", Consolas, monospace",
+      "padding": "2px 5px 2px 5px",
+      "background-color": "#ede8df !important",
+      "color": "#b75c3d !important",
+      "border-radius": "3px",
+      "font-size": "16px !important",
+      "line-height": "1.5 !important"
+    },
+    "pre": {
+      "margin": "28px 0",
+      "padding": "20px",
+      "background-color": "#f2ede4 !important",
+      "border-top": "1px solid #e4ddd2",
+      "border-right": "1px solid #e4ddd2",
+      "border-bottom": "1px solid #e4ddd2",
+      "border-left": "1px solid #e4ddd2",
+      "border-radius": "6px",
+      "overflow-x": "auto",
+      "font-size": "13px !important",
+      "line-height": "1.6 !important"
+    },
+    "hr": {
+      "margin": "42px auto",
+      "border": "none",
+      "height": "0",
+      "width": "100%",
+      "--hr-symbol": "○",
+      "--hr-symbol-position": "center",
+      "--hr-symbol-color": "#c9a88c",
+      "--hr-symbol-size": "10px",
+      "--hr-gap": "24px",
+      "--hr-line-color": "#d9c4b0",
+      "--hr-line-thickness": "1px"
+    },
+    "img": {
+      "max-width": "100%",
+      "height": "auto",
+      "display": "block",
+      "margin": "28px auto",
+      "border-radius": "6px"
+    },
+    "table": {
+      "width": "100%",
+      "margin": "28px 0",
+      "border-collapse": "collapse",
+      "font-size": "15px"
+    },
+    "th": {
+      "background-color": "#f2ede4 !important",
+      "padding": "10px 14px",
+      "text-align": "left",
+      "font-weight": "600",
+      "color": "#2b2b2b !important",
+      "border": "1px solid #e4ddd2",
+      "border-bottom": "2px solid #c9a88c",
+      "font-size": "16px"
+    },
+    "td": {
+      "padding": "10px 14px",
+      "border": "1px solid #e4ddd2",
+      "color": "#2b2b2b !important",
+      "font-size": "16px"
+    },
+    "tr": {
+      "border": "none"
+    }
+  },
+  "advancedStyles": {
+    "blockquote": {
+      "box-shadow": "0 1px 6px rgba(139,109,80,0.06)"
+    },
+    "img": {
+      "box-shadow": "0 3px 12px rgba(139,109,80,0.10)"
+    }
+  }
+}

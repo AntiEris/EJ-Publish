@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNS Publish — Design Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ========================================
+     SCHEME A: 浅色 — 日光下的纸张
+     ======================================== */
+  :root {
+    --paper: #F4F1EB;
+    --surface: #FEFCF9;
+    --surface-dim: #ECE9E2;
+    --surface-editor: #FAF8F4;
+    --ink: #292524;
+    --ink-soft: #44403C;
+    --ink-muted: #78716C;
+    --ink-faint: #A8A29E;
+    --ink-ghost: #D6D3CD;
+    --rule: #DAD7CF;
+    --rule-light: #E8E5DE;
+    --rule-faint: #F0EDE7;
+    --btn-fill: #292524;
+    --btn-fill-hover: #1C1917;
+    --btn-text: #FEFCF9;
+    --btn-success: #4D7C5B;
+    --code-bg: #292524;
+    --code-text: #D6D3D1;
+    --shadow-sm: 0 1px 2px rgba(41,37,36,0.04);
+    --shadow-md: 0 2px 8px rgba(41,37,36,0.05);
+    --shadow-page: 0 1px 3px rgba(41,37,36,0.03), 0 8px 28px rgba(41,37,36,0.05);
+  }
+
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, 'PingFang SC', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .fd { font-family: 'Crimson Pro', 'Noto Serif SC', Georgia, serif; }
+  .fm { font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace; }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 48px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    flex-shrink: 0;
+    z-index: 100;
+       position: relative;
+  }
+
+  .hl { display: flex; align-items: center; gap: 20px; }
+
+  .nav-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .logo-mark {
+    width: 26px; height: 26px;
+    background: var(--btn-fill);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 600; font-style: italic;
+    color: var(--btn-text);
+     }
+
+  .logo-text { font-size: 16px; font-weight: 600; letter-spacing: -0.2px; color: var(--ink); }
+
+  .pills { display: flex; gap: 1px; background: var(--surface-dim); padding: 3px; border-radius: 7px; transition: background 0.4s; }
+
+  .pill {
+    padding: 4px 14px; font-size: 12.5px; font-weight: 500;
+    border-radius: 5px; border: none; cursor: pointer;
+    background: transparent; color: var(--ink-faint);
+    font-family: inherit; transition: all 0.2s;
+  }
+
+  .pill.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+  .pill:hover:not(.active) { color: var(--ink-muted); }
+
+  .hr { display: flex; align-items: center; gap: 6px; }
+
+  .ibtn {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border: none; background: transparent; border-radius: 6px;
+    cursor: pointer; color: var(--ink-faint); transition: all 0.2s;
+  }
+
+  .ibtn:hover { color: var(--ink-muted); background: var(--surface-dim); }
+
+
+  /* ===== PAGES ===== */
+  .page { display: none; flex: 1; min-height: 0; }
+  .page.active { display: flex; flex-direction: column; }
+
+  .workspace { flex: 1; display: flex; min-height: 0; }
+
+  /* ===== LEFT: EDITOR ===== */
+  .editor-side {
+    width: 50%; min-width: 280px;
+    display: flex; flex-direction: column;
+    background: var(--surface);
+    border-right: 1px solid var(--rule);
+    flex-shrink: 0;
+     }
+
+  .editor-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 40px; padding: 0 14px;
+    border-bottom: 1px solid var(--rule-light);
+    flex-shrink: 0; gap: 8px;
+  }
+
+  .etl { display: flex; align-items: center; gap: 4px; min-width: 0; flex: 1; overflow: hidden; }
+
+  .etr {
+    font-size: 11px; color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0; white-space: nowrap;
+  }
+
+  .tp { display: flex; gap: 1px; background: var(--surface-dim); padding: 2px; border-radius: 6px; flex-shrink: 0; }
+
+  .tp-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 3px 9px; border-radius: 4px; border: none;
+    cursor: pointer; font-size: 11.5px; font-weight: 500;
+    font-family: inherit; color: var(--ink-muted);
+    background: transparent; transition: all 0.2s; white-space: nowrap;
+  }
+
+  .tp-btn.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+
+  .tp-sw { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--ink-ghost); flex-shrink: 0; }
+
+  .tp-more {
+    padding: 3px 6px; border: none; background: transparent;
+    cursor: pointer; color: var(--ink-faint); font-size: 11.5px;
+    font-family: inherit; border-radius: 4px; transition: all 0.15s; flex-shrink: 0;
+  }
+
+  .tp-more:hover { color: var(--ink-muted); }
+
+  .editor-ta {
+    flex: 1; min-height: 0; padding: 20px 18px;
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 14px; line-height: 1.85;
+    color: var(--ink); background: var(--surface-editor);
+    border: none; outline: none; resize: none; overflow-y: auto;
+  }
+
+  .editor-ta::placeholder { color: var(--ink-ghost); }
+
+  .editor-ft {
+    display: flex; align-items: center; padding: 6px 14px;
+    border-top: 1px solid var(--rule-light);
+    background: var(--surface); flex-shrink: 0;
+  }
+
+  .editor-hint { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--ink-ghost); }
+  .hint-icon { width: 12px; height: 12px; }
+
+  /* ===== DRAG ===== */
+  .drag {
+    width: 7px; cursor: col-resize; background: transparent;
+    position: relative; flex-shrink: 0; z-index: 50;
+    margin-left: -3px; margin-right: -4px;
+  }
+
+  .drag::after {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3px; height: 32px; border-radius: 2px;
+    background: var(--ink-ghost); opacity: 0; transition: opacity 0.2s;
+  }
+
+  .drag:hover::after, .drag.on::after { opacity: 1; }
+  .drag.on::after { background: var(--ink-muted); }
+
+  /* ===== RIGHT: PREVIEW ===== */
+  .preview-side {
+    flex: 1; display: flex; flex-direction: column;
+    min-width: 480px; background: var(--paper);
+    overflow: hidden;  }
+
+  .preview-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 40px; padding: 0 14px;
+    background: var(--surface); border-bottom: 1px solid var(--rule-light);
+    flex-shrink: 0; gap: 10px;  }
+
+  .ptl { display: flex; align-items: center; gap: 8px; flex: 1; }
+  .ptr { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+
+  .wp { display: flex; gap: 1px; background: var(--surface-dim); border-radius: 5px; padding: 2px; }
+
+  .wp-btn {
+    padding: 2px 6px; font-size: 10px; font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink-faint); background: transparent;
+    border: none; border-radius: 3px; cursor: pointer; transition: all 0.15s;
+  }
+
+  .wp-btn:hover { color: var(--ink-muted); }
+  .wp-btn.active { color: var(--ink-soft); background: var(--surface); box-shadow: var(--shadow-sm); }
+
+  .ws {
+    -webkit-appearance: none; width: 80px; height: 1.5px;
+    background: var(--rule); border-radius: 1px; outline: none; cursor: pointer;
+  }
+
+  .ws::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 11px; height: 11px;
+    background: var(--ink-muted); border-radius: 50%; cursor: pointer;
+    box-shadow: 0 1px 3px rgba(41,37,36,0.15); transition: all 0.12s;
+  }
+
+  .ws::-webkit-slider-thumb:hover { background: var(--ink-soft); transform: scale(1.15); }
+
+  .wl { font-size: 10.5px; font-weight: 500; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; min-width: 36px; }
+
+  .btn-s {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 4px; padding: 5px 10px; font-size: 12px; font-weight: 500;
+    font-family: inherit; border-radius: 6px; border: none;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+  }
+
+  .btn-o { background: transparent; color: var(--ink-muted); border: 1px solid var(--rule); }
+  .btn-o:hover { color: var(--ink-soft); border-color: var(--ink-ghost); background: var(--rule-faint); }
+
+  .btn-f { background: var(--btn-fill); color: var(--btn-text); }
+  .btn-f:hover { background: var(--btn-fill-hover); }
+
+  .ib {
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    border: none; background: transparent; border-radius: 5px;
+    cursor: pointer; color: var(--ink-faint); transition: all 0.15s; flex-shrink: 0;
+  }
+
+  .ib:hover { background: var(--rule-faint); color: var(--ink-muted); }
+  .ib.on { color: var(--ink-soft); }
+
+  /* Canvas */
+  .canvas {
+    flex: 1; overflow-y: auto; display: flex; justify-content: center;
+    padding: 36px 24px 64px; min-height: 0;
+  }
+
+  .ppage {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow-page);
+    width: 100%; max-width: var(--pw, 680px);
+    min-height: 100%; padding: 52px 44px;
+    transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s;
+    align-self: flex-start;
+  }
+
+  .ppage h1 { font-family: 'Crimson Pro', Georgia, serif; font-size: 28px; font-weight: 600; line-height: 1.35; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.3px; }
+  .ppage .meta { font-size: 13px; color: var(--ink-faint); margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--rule-light); font-style: italic; font-family: 'Crimson Pro', Georgia, serif; }
+  .ppage p { font-size: 15.5px; line-height: 1.85; color: var(--ink-soft); margin-bottom: 18px; }
+  .ppage h2 { font-family: 'Crimson Pro', Georgia, serif; font-size: 22px; font-weight: 600; color: var(--ink); margin-top: 36px; margin-bottom: 12px; }
+  .ppage blockquote { border-left: 2px solid var(--ink-ghost); padding: 10px 20px; margin: 20px 0; background: var(--rule-faint); border-radius: 0 3px 3px 0; font-style: italic; color: var(--ink-muted); font-size: 14.5px; line-height: 1.75; font-family: 'Crimson Pro', Georgia, serif; }
+  .ppage pre { background: var(--code-bg); color: var(--code-text); padding: 20px; border-radius: 4px; margin: 20px 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7; overflow-x: auto; }
+  .ppage code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--surface-dim); padding: 2px 5px; border-radius: 3px; color: var(--ink-soft); }
+  .ppage pre code { background: transparent; padding: 0; color: inherit; }
+  .ppage .orn { text-align: center; color: var(--ink-ghost); font-size: 14px; letter-spacing: 8px; margin: 36px 0; font-family: 'Crimson Pro', Georgia, serif; }
+  .ppage hr { border: none; height: 1px; background: var(--rule-light); margin: 32px 0; }
+
+  /* ===== TEMPLATES PAGE ===== */
+  .tw { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+
+  .tab {
+    display: flex; align-items: center; height: 40px; padding: 0 14px;
+    background: var(--surface); border-bottom: 1px solid var(--rule);
+    gap: 4px; flex-shrink: 0; overflow-x: auto;  }
+
+  .tab::-webkit-scrollbar { display: none; }
+
+  .tb {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 10px; font-size: 11.5px; font-weight: 500;
+    font-family: inherit; border-radius: 5px;
+    border: 1px solid var(--rule); cursor: pointer;
+    transition: all 0.15s; white-space: nowrap;
+    background: var(--surface); color: var(--ink-muted); flex-shrink: 0;
+  }
+
+  .tb:hover { background: var(--rule-faint); border-color: var(--ink-ghost); }
+  .tb.p { background: var(--btn-fill); color: var(--btn-text); border-color: var(--btn-fill); }
+  .tb.p:hover { background: var(--btn-fill-hover); }
+
+  .tsep { width: 1px; height: 18px; background: var(--rule-light); flex-shrink: 0; margin: 0 2px; }
+
+  .tbody { flex: 1; display: flex; min-height: 0; background: var(--paper); transition: background 0.4s; }
+
+  .tsb {
+    width: 280px; display: flex; flex-direction: column;
+    background: var(--surface); border-right: 1px solid var(--rule);
+    flex-shrink: 0; min-height: 0;  }
+
+  .tsb-h { padding: 14px 14px 10px; border-bottom: 1px solid var(--rule-light); flex-shrink: 0; }
+  .tsb-h h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .tsb-h p { font-size: 11.5px; color: var(--ink-faint); }
+
+  .tc {
+    margin: 10px; padding: 10px 12px;
+    border: 1px solid var(--rule-light); border-radius: 8px;
+    background: var(--surface-editor); flex-shrink: 0;  }
+
+  .tc-badge { font-size: 9.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); }
+
+  .tc-unsaved {
+    display: inline-block; font-size: 9.5px; font-weight: 600;
+    padding: 1px 5px; border-radius: 3px; margin-left: 5px;
+  }
+
+  .tc-unsaved { color: #92700C; background: #FEF3C7; }
+
+  .tc-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-top: 3px; }
+  .tc-id { font-size: 10.5px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; margin-top: 1px; }
+
+  .tlist { flex: 1; overflow-y: auto; padding: 6px 10px; min-height: 0; }
+
+  .tli {
+    width: 100%; text-align: left; padding: 9px 11px;
+    border: 1px solid var(--rule-light); border-radius: 7px;
+    background: var(--surface); margin-bottom: 5px;
+    cursor: pointer; transition: all 0.15s; display: block; font-family: inherit;
+  }
+
+  .tli:hover { border-color: var(--ink-ghost); background: var(--surface-editor); }
+  .tli.sel { border-color: var(--ink-muted); background: var(--rule-faint); }
+  .tli .n { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .tli .i { font-size: 10px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; margin-top: 1px; }
+  .tli .d { font-size: 11.5px; color: var(--ink-muted); margin-top: 4px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tli .s { font-size: 10px; color: var(--ink-faint); margin-top: 4px; }
+
+  .tmain {
+    flex: 1; display: grid; grid-template-columns: 400px minmax(0,1fr);
+    gap: 14px; padding: 14px; min-height: 0; overflow: hidden;
+  }
+
+  .se {
+    display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--rule);
+    border-radius: 10px; overflow: hidden; min-height: 0;  }
+
+  .se-h { padding: 12px 14px; border-bottom: 1px solid var(--rule-light); flex-shrink: 0; }
+  .se-h h3 { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .se-h p { font-size: 11.5px; color: var(--ink-faint); margin-top: 1px; }
+
+  .sbtns { display: flex; flex-wrap: wrap; gap: 3px; padding: 10px 14px; border-bottom: 1px solid var(--rule-light); flex-shrink: 0; }
+
+  .sb {
+    padding: 3px 8px; font-size: 11px; font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink-muted); background: var(--surface-dim);
+    border: 1px solid transparent; border-radius: 4px;
+    cursor: pointer; transition: all 0.15s;
+  }
+
+  .sb:hover { border-color: var(--rule); }
+  .sb.on { color: var(--ink); background: var(--rule-faint); border-color: var(--ink-ghost); font-weight: 600; }
+
+  .sc { flex: 1; overflow-y: auto; padding: 14px; min-height: 0; }
+
+  .fst {
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--ink-faint);
+    margin-bottom: 6px; margin-top: 14px; padding-bottom: 5px;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .fst:first-child { margin-top: 0; }
+
+  .fr { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; }
+  .fl { font-size: 12px; font-weight: 500; color: var(--ink-soft); }
+
+  .fi {
+    padding: 4px 8px; font-size: 11.5px;
+    font-family: 'JetBrains Mono', monospace;
+    border: 1px solid var(--rule); border-radius: 5px;
+    background: var(--surface-editor); color: var(--ink);
+    width: 170px; outline: none; transition: background 0.4s, color 0.4s;
+  }
+
+  .fi:focus { border-color: var(--ink-ghost); }
+
+  .fc { display: flex; align-items: center; gap: 6px; }
+  .fcs { width: 22px; height: 22px; border-radius: 4px; border: 1px solid var(--rule); cursor: pointer; }
+
+  .tpv {
+    display: flex; flex-direction: column;
+    background: var(--surface-dim); border: 1px solid var(--rule);
+    border-radius: 10px; overflow: hidden; min-height: 0;  }
+
+  .tpv-tb {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 36px; padding: 0 12px;
+    background: var(--surface); border-bottom: 1px solid var(--rule-light);
+    flex-shrink: 0;  }
+
+  .mp { display: flex; gap: 1px; background: var(--surface-dim); padding: 2px; border-radius: 5px; }
+
+  .mp-btn {
+    padding: 3px 9px; font-size: 11px; font-weight: 500;
+    font-family: inherit; color: var(--ink-faint);
+    background: transparent; border: none; border-radius: 3px;
+    cursor: pointer; transition: all 0.15s;
+  }
+
+  .mp-btn.on { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+
+  .tpv-c { flex: 1; overflow-y: auto; display: flex; justify-content: center; padding: 20px 14px; min-height: 0; }
+
+  .tpv-pg {
+    background: var(--surface); border: 1px solid var(--rule);
+    box-shadow: var(--shadow-md); width: 100%; max-width: 520px;
+    padding: 28px 24px; align-self: flex-start;  }
+
+  .tpv-pg h2 { font-family: 'Crimson Pro', Georgia, serif; font-size: 19px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  .tpv-pg p { font-size: 13.5px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 10px; }
+  .tpv-pg blockquote { border-left: 2px solid var(--ink-ghost); padding: 8px 14px; margin: 12px 0; background: var(--rule-faint); border-radius: 0 3px 3px 0; font-style: italic; color: var(--ink-muted); font-size: 13px; font-family: 'Crimson Pro', Georgia, serif; }
+
+  /* Utility */
+  .no-select { user-select: none !important; cursor: col-resize !important; }
+  .no-select * { user-select: none !important; cursor: col-resize !important; }
+  .no-select textarea { pointer-events: none !important; }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--ink-ghost); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="hl">
+      <div class="logo">
+        <div class="logo-mark fd">S</div>
+        <span class="logo-text fd">SNS Publish</span>
+      </div>
+    </div>
+    <div class="nav-center">
+      <div class="pills">
+        <button class="pill active" id="ne" onclick="showPage('e')">文档编辑</button>
+        <button class="pill" id="nt" onclick="showPage('t')">模板制作</button>
+      </div>
+    </div>
+    <div class="hr">
+      <button class="ibtn" title="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- EDITOR PAGE -->
+  <div class="page active" id="pe">
+    <div class="workspace" id="ws">
+      <div class="editor-side" id="es">
+        <div class="editor-topbar">
+          <div class="etl">
+            <div class="tp">
+              <button class="tp-btn active" onclick="selTheme(this)"><span class="tp-sw" style="background:#292524;"></span>默认</button>
+              <button class="tp-btn" onclick="selTheme(this)"><span class="tp-sw" style="background:#78563A;"></span>暖茶</button>
+              <button class="tp-btn" onclick="selTheme(this)"><span class="tp-sw" style="background:#3D5A3E;"></span>墨绿</button>
+            </div>
+            <button class="tp-more">更多 ›</button>
+          </div>
+          <div class="etr" id="cc">486 字</div>
+        </div>
+        <textarea class="editor-ta" id="ta" spellcheck="false"># 写作的艺术
+
+> 写作是思考的延伸，是将无形的想法铸造成有形文字的过程。
+
+好的排版不仅仅是美学追求。它是对读者注意力的尊重，是信息传达效率的保证。每一个字距、每一处行高、每一块留白，都在无声地引导着阅读的节奏。
+
+## 排版的力量
+
+当文字被赋予恰当的形式，它就获得了超越内容本身的表达力。一篇排版精良的文章，如同一件精心装帧的书籍，让读者在阅读之前就已经产生了信任感。
+
+---
+
+正如 Jan Tschichold 所说：
+
+> 完美的排版是一门被隐藏的艺术。
+
+在微信公众号的方寸之间，这种艺术尤为珍贵。
+
+## 代码之美
+
+即使是代码，也可以优雅：
+
+```javascript
+const compose = (...fns) =>
+  fns.reduce((f, g) =>
+    (...args) => f(g(...args)));
+```
+
+让每一个字符都找到它应在的位置。</textarea>
+        <div class="editor-ft">
+          <span class="editor-hint">
+            <svg class="hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/></svg>
+            智能粘贴：从飞书 / Notion / Word 粘贴自动转换
+          </span>
+        </div>
+      </div>
+
+      <div class="drag" id="dh"></div>
+
+      <div class="preview-side">
+        <div class="preview-topbar">
+          <div class="ptl">
+            <div class="wp" id="wps">
+              <button class="wp-btn" onclick="sw(375)">375</button>
+              <button class="wp-btn" onclick="sw(520)">520</button>
+              <button class="wp-btn" onclick="sw(680)">680</button>
+              <button class="wp-btn" onclick="sw(840)">840</button>
+              <button class="wp-btn active" onclick="sw(1024)">1024</button>
+            </div>
+            <input type="range" class="ws" min="320" max="1200" value="1024" id="wsl" oninput="uw(this.value)">
+            <span class="wl" id="wlb">1024px</span>
+          </div>
+          <div class="ptr">
+            <button class="ib on" title="滚动同步"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" x2="16" y1="12" y2="12"/></svg></button>
+            <button class="btn-s btn-o"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> PDF</button>
+            <button class="btn-s btn-o"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> HTML</button>
+            <button class="btn-s btn-f"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> 复制到微信</button>
+          </div>
+        </div>
+        <div class="canvas">
+          <div class="ppage" id="pp" style="--pw:1024px;">
+            <h1>写作的艺术</h1>
+            <div class="meta">排版是对读者注意力的尊重</div>
+            <blockquote>写作是思考的延伸，是将无形的想法铸造成有形文字的过程。</blockquote>
+            <p>好的排版不仅仅是美学追求。它是对读者注意力的尊重，是信息传达效率的保证。每一个字距、每一处行高、每一块留白，都在无声地引导着阅读的节奏。</p>
+            <h2>排版的力量</h2>
+            <p>当文字被赋予恰当的形式，它就获得了超越内容本身的表达力。一篇排版精良的文章，如同一件精心装帧的书籍，让读者在阅读之前就已经产生了信任感。</p>
+            <div class="orn">* * *</div>
+            <p>正如 Jan Tschichold 所说：</p>
+            <blockquote>完美的排版是一门被隐藏的艺术。</blockquote>
+            <p>在微信公众号的方寸之间，这种艺术尤为珍贵。</p>
+            <h2>代码之美</h2>
+            <p>即使是代码，也可以优雅：</p>
+            <pre><code>const compose = (...fns) =>
+  fns.reduce((f, g) => (...args) => f(g(...args)));</code></pre>
+            <p>让每一个字符都找到它应在的位置。</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATES PAGE -->
+  <div class="page" id="pt">
+    <div class="tw">
+      <div class="tab">
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg> 新建</button>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> 复制</button>
+        <button class="tb p"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> 保存</button>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> 删除</button>
+        <div class="tsep"></div>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg> 导入模板</button>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg> 导入整库</button>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> 导出模板</button>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> 导出整库</button>
+        <div class="tsep"></div>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg> 恢复官方</button>
+        <button class="tb"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 应用到文档编辑</button>
+      </div>
+      <div class="tbody">
+        <div class="tsb">
+          <div class="tsb-h"><h3>模板库</h3><p>当前仓库中的全部模板文件</p></div>
+          <div class="tc">
+            <span class="tc-badge">Current</span><span class="tc-unsaved">Unsaved</span>
+            <div class="tc-name">默认</div><div class="tc-id">default</div>
+          </div>
+          <div class="tlist">
+            <button class="tli sel"><div class="n">默认</div><div class="i">default</div><div class="d">经典主题，适合正式长文和技术分享。</div><div class="s">来源：seed</div></button>
+            <button class="tli"><div class="n">暖茶色</div><div class="i">warm-tea</div><div class="d">温暖的棕调排版，舒适的阅读氛围。</div><div class="s">来源：seed</div></button>
+            <button class="tli"><div class="n">墨绿</div><div class="i">ink-green</div><div class="d">沉稳的绿色调，适合自然、生活类。</div><div class="s">来源：seed</div></button>
+            <button class="tli"><div class="n">经典黑白</div><div class="i">classic-mono</div><div class="d">纯粹的黑白灰极简风格。</div><div class="s">来源：custom</div></button>
+          </div>
+        </div>
+        <div class="tmain">
+          <div class="se">
+            <div class="se-h"><h3>选择器编辑区</h3><p>选择 CSS 选择器，编辑其样式属性</p></div>
+            <div class="sbtns">
+              <button class="sb on">container</button><button class="sb">h1</button><button class="sb">h2</button><button class="sb">h3</button><button class="sb">p</button><button class="sb">a</button><button class="sb">blockquote</button><button class="sb">pre</button><button class="sb">code</button><button class="sb">img</button><button class="sb">hr</button><button class="sb">li</button><button class="sb">table</button>
+            </div>
+            <div class="sc">
+              <div class="fst">Typography</div>
+              <div class="fr"><span class="fl">font-family</span><input class="fi" value="-apple-system, sans-serif" readonly></div>
+              <div class="fr"><span class="fl">font-size</span><input class="fi" value="16px" readonly></div>
+              <div class="fr"><span class="fl">line-height</span><input class="fi" value="1.75" readonly></div>
+              <div class="fst">Color / Background</div>
+              <div class="fr"><span class="fl">color</span><div class="fc"><div class="fcs" style="background:#333;"></div><input class="fi" value="#333333" readonly style="width:130px;"></div></div>
+              <div class="fr"><span class="fl">background</span><div class="fc"><div class="fcs" style="background:#fff;"></div><input class="fi" value="#ffffff" readonly style="width:130px;"></div></div>
+              <div class="fst">Spacing</div>
+              <div class="fr"><span class="fl">padding</span><input class="fi" value="20px 24px" readonly></div>
+              <div class="fr"><span class="fl">margin</span><input class="fi" value="0" readonly></div>
+            </div>
+          </div>
+          <div class="tpv">
+            <div class="tpv-tb">
+              <div class="mp"><button class="mp-btn">单选择器</button><button class="mp-btn on">整页预览</button></div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div class="wp"><button class="wp-btn">375</button><button class="wp-btn active">520</button><button class="wp-btn">680</button></div>
+                <input type="range" class="ws" min="320" max="800" value="520" style="width:70px;" oninput="this.nextElementSibling.textContent=this.value+'px'">
+                <span class="wl">520px</span>
+              </div>
+            </div>
+            <div class="tpv-c">
+              <div class="tpv-pg">
+                <h2>排版的力量</h2>
+                <p>当文字被赋予恰当的形式，它就获得了超越内容本身的表达力。如同一件精心装帧的书籍。</p>
+                <blockquote>完美的排版是一门被隐藏的艺术。</blockquote>
+                <p>在微信公众号的方寸之间，这种艺术尤为珍贵。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showPage(p){
+    document.getElementById('pe').classList.toggle('active',p==='e');
+    document.getElementById('pt').classList.toggle('active',p==='t');
+    document.getElementById('ne').classList.toggle('active',p==='e');
+    document.getElementById('nt').classList.toggle('active',p==='t');
+  }
+
+  const dh=document.getElementById('dh'),es_=document.getElementById('es'),ws_=document.getElementById('ws');
+  let dr=false,sx_,sw_;
+
+  dh.addEventListener('mousedown',e=>{
+    dr=true;sx_=e.clientX;sw_=es_.offsetWidth;
+    dh.classList.add('on');document.body.classList.add('no-select');
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove',e=>{
+    if(!dr)return;
+    const mx=ws_.offsetWidth-480;
+    es_.style.width=Math.min(mx,Math.max(280,sw_+e.clientX-sx_))+'px';
+  });
+  document.addEventListener('mouseup',()=>{
+    if(!dr)return;dr=false;
+    dh.classList.remove('on');document.body.classList.remove('no-select');
+  });
+
+  function uw(v){
+    document.getElementById('wlb').textContent=v+'px';
+    document.getElementById('pp').style.setProperty('--pw',v+'px');
+    document.querySelectorAll('#wps .wp-btn').forEach(b=>b.classList.toggle('active',b.textContent===String(v)));
+  }
+  function sw(v){document.getElementById('wsl').value=v;uw(v);}
+  function selTheme(el){document.querySelectorAll('.tp-btn').forEach(p=>p.classList.remove('active'));el.classList.add('active');}
+
+  const ta_=document.getElementById('ta'),cc_=document.getElementById('cc');
+  ta_.addEventListener('input',()=>{cc_.textContent=ta_.value.length+' 字';});
+</script>
+</body>
+</html>

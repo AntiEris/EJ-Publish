@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply antialiased text-ink bg-paper;
+    }
+}
+
+@layer utilities {
+    /* ===== Button styles ===== */
+    .ink-btn {
+        @apply flex items-center justify-center gap-[5px] px-[10px] py-[5px] rounded-[6px] text-[12px] font-medium transition-all duration-150 whitespace-nowrap;
+    }
+
+    .ink-btn-outline {
+        @apply ink-btn bg-transparent text-ink-muted border border-rule;
+    }
+
+    .ink-btn-outline:hover {
+        @apply text-ink-soft border-ink-ghost bg-rule-faint;
+    }
+
+    .ink-btn-dark {
+        @apply ink-btn bg-btn-fill text-btn-text;
+    }
+
+    .ink-btn-dark:hover {
+        @apply bg-btn-fill-hover;
+    }
+
+    .ink-btn-success {
+        @apply ink-btn bg-btn-success text-btn-text;
+    }
+
+    /* ===== Toolbar / Panel chrome ===== */
+    .panel-bar {
+        @apply bg-surface border-b border-rule-light;
+    }
+
+    .panel-surface {
+        @apply bg-surface border border-rule;
+    }
+
+    /* ===== Pill selector ===== */
+    .pill-group {
+        @apply flex gap-px bg-surface-dim p-[3px] rounded-[7px];
+    }
+
+    .pill-item {
+        @apply px-[14px] py-1 text-[12.5px] font-medium rounded-[5px] transition-all duration-200 bg-transparent text-ink-faint cursor-pointer border-none;
+    }
+
+    .pill-item-active {
+        @apply bg-surface text-ink shadow-sm;
+    }
+
+    .pill-item:hover:not(.pill-item-active) {
+        @apply text-ink-muted;
+    }
+
+    /* ===== Width preset buttons ===== */
+    .width-preset-group {
+        @apply flex gap-px bg-surface-dim rounded-[5px] p-[2px];
+    }
+
+    .width-preset-btn {
+        @apply px-[6px] py-[2px] text-[10px] font-medium font-mono text-ink-faint bg-transparent border-none rounded-[3px] cursor-pointer transition-all duration-150;
+    }
+
+    .width-preset-btn:hover {
+        @apply text-ink-muted;
+    }
+
+    .width-preset-btn-active {
+        @apply text-ink-soft bg-surface shadow-sm;
+    }
+
+    /* ===== Icon button ===== */
+    .icon-btn-sm {
+        @apply w-7 h-7 flex items-center justify-center border-none bg-transparent rounded-[5px] cursor-pointer text-ink-faint transition-all duration-150 shrink-0;
+    }
+
+    .icon-btn-sm:hover {
+        @apply bg-rule-faint text-ink-muted;
+    }
+
+    .icon-btn-sm-active {
+        @apply text-ink-soft;
+    }
+
+    /* ===== Drag handle ===== */
+    .drag-handle {
+        @apply w-[7px] cursor-col-resize bg-transparent relative shrink-0 z-50;
+        margin-left: -3px;
+        margin-right: -4px;
+    }
+
+    .drag-handle::after {
+        content: '';
+        @apply absolute top-1/2 left-1/2 w-[3px] h-8 rounded-sm bg-ink-ghost opacity-0 transition-opacity duration-200;
+        transform: translate(-50%, -50%);
+    }
+
+    .drag-handle:hover::after {
+        @apply opacity-100;
+    }
+
+    .drag-handle-active::after {
+        @apply opacity-100 bg-ink-muted;
+    }
+
+    /* ===== Width slider ===== */
+    .width-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        @apply w-20 h-[1.5px] bg-rule rounded-sm outline-none cursor-pointer;
+    }
+
+    .width-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        @apply w-[11px] h-[11px] bg-ink-muted rounded-full cursor-pointer transition-all duration-150;
+        box-shadow: 0 1px 3px rgba(41, 37, 36, 0.15);
+    }
+
+    .width-slider::-webkit-slider-thumb:hover {
+        @apply bg-ink-soft;
+        transform: scale(1.15);
+    }
+
+    /* ===== Hide scrollbar ===== */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* ===== Drag no-select state ===== */
+    .drag-no-select {
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        cursor: col-resize !important;
+    }
+
+    .drag-no-select * {
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        cursor: col-resize !important;
+    }
+
+    .drag-no-select iframe,
+    .drag-no-select textarea {
+        pointer-events: none !important;
+    }
+}
