@@ -97,6 +97,11 @@ src/
     └── default-showcase.md     # 默认示例文档
 ```
 
+## 站点
+
+- 主站：[publish.ej-studio.app](https://publish.ej-studio.app)
+- 备用：[antieris.github.io/EJ-Publish](https://antieris.github.io/EJ-Publish/)
+
 ## 许可证
 
 Apache License 2.0 — 详见 [LICENSE](LICENSE)。
