@@ -12,6 +12,7 @@ test-results/
 *.swo
 *~
 docs/
+worker-image-proxy/
 .tmp-theme-load/
 vite.config.js
 vite.config.d.ts
